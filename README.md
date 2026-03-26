@@ -4,11 +4,6 @@ Aplicação web para sortear números aleatórios de forma simples, rápida e vi
 
 Este projeto foi desenvolvido a partir de um desafio da Rocketseat e recebeu melhorias próprias, com foco em usabilidade, responsividade, organização do código e acessibilidade.
 
-## Acesse o projeto
-
-- Deploy: [https://sorteio-rapido.vercel.app](https://sorteio-rapido.vercel.app)
-- Repositório: [https://github.com/Dev-JacksonFelipe/Sorteador-de-numeros](https://github.com/Dev-JacksonFelipe/Sorteador-de-numeros)
-
 ## Funcionalidades
 
 - Definir a quantidade de números sorteados
