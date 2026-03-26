@@ -1,0 +1,179 @@
+/* Div que irá conter os elementos */
+.space {
+  max-width: 100%;
+  width: 100%;
+  min-height: 18rem;
+  max-height: max-content;
+  padding-block: 4.5rem 2.5rem;
+  display: grid;
+  justify-content: center;
+}
+
+/* Título da div */
+.result {
+  text-align: center;
+  font: var(--label-md);
+}
+
+/* Sub-título */
+.subtitle {
+  font: var(--overline);
+  color: var(--content-secondary);
+  text-align: center;
+}
+
+/* Div pai dos números sorteados */
+.div-sorted-numbers {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-top: 2.5rem;
+}
+
+/* div que irá conter cada número sorteado */
+.number-sorted {
+  font: var(--number-mono);
+  color: var(--content-brand);
+  opacity: 0;
+  transform: translateY(0.75rem) scale(0.88);
+  animation: numberReveal 420ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    numberFloat 680ms cubic-bezier(0.2, 0.9, 0.25, 1) 90ms forwards,
+    colorInverse 120ms linear 150ms forwards,
+    colorReturn 160ms linear 820ms forwards;
+}
+
+/* animação que o número terá ao aparecer */
+
+.animation-number {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-color: var(--content-brand);
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 1.75rem;
+  opacity: 0;
+  transform: translateY(1rem) scale(0.82) rotate(-14deg);
+  box-shadow: 0 0 0 rgba(197, 141, 231, 0);
+  animation: cardReveal 460ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    cardRock 720ms cubic-bezier(0.2, 0.9, 0.25, 1) 110ms forwards,
+    glowPulse 650ms ease-out 120ms forwards,
+    backTransparent 360ms ease 780ms forwards,
+    shadowReturn 360ms ease 780ms forwards;
+}
+
+/* Transição para aparecer o botão */
+.appear-button {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+@keyframes colorInverse {
+  100% {
+    color: var(--color-inverse);
+  }
+}
+
+@keyframes colorReturn {
+  100% {
+    color: var(--content-brand);
+  }
+}
+
+@keyframes cardReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.82) rotate(-14deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1.06) rotate(0deg);
+  }
+}
+
+@keyframes cardRock {
+  0% {
+    transform: translateY(0) scale(1.06) rotate(0deg);
+  }
+
+  35% {
+    transform: translateY(-0.2rem) scale(1.02) rotate(8deg);
+  }
+
+  65% {
+    transform: translateY(0.08rem) scale(0.99) rotate(-6deg);
+  }
+
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes numberReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.88);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+  }
+}
+
+@keyframes numberFloat {
+  0% {
+    transform: translateY(0) scale(1.04);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes backTransparent {
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(197, 141, 231, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 1.5rem rgba(197, 141, 231, 0.18);
+  }
+}
+
+@keyframes shadowReturn {
+  to {
+    box-shadow: 0 0 0 rgba(197, 141, 231, 0);
+  }
+}
+
+@keyframes moveNumber {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (950px <= width < 1200px) {
+  .space {
+    width: 22rem;
+    padding-block: 0 2rem;
+  }
+}
+
+@media (width >= 1200px) {
+  .space {
+    width: 26rem;
+  }
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numbers</title>
+
+    <link rel="stylesheet" href="styles/index.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="container grid">
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <img src="assets/logo.svg" alt="Numbers - Sorteador de números" role="img" />
+    <div id="layout">
+      <header class="grid" role="banner">
+        <div class="grid">
+          <h3>Online - gratuito</h3>
+          <h1>Sorteador de números</h1>
+        </div>
+
+        <div id="info" class="desktop-only">
+          <section>
+            <img src="assets/icons/user.svg" alt="Ícone de usuário" />
+            <div>
+              <h3>Como funciona o sorteador de números?</h3>
+              <p>
+                O sorteador utiliza um algoritmo de geração aleatória para criar
+                números dentro do intervalo especificado pelo usuário.
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <img src="assets/icons/user.svg" alt="Ícone de usuário" />
+            <div>
+              <h3>Posso escolher o intervalo dos números?</h3>
+              <p>
+                Sim, você pode definir os valores mínimo e máximo para o
+                intervalo dos números sorteados.
+              </p>
+            </div>
+          </section>
+        </div>
+      </header>
+
+      <main class="grid" id="main-content" role="main">
+        <div class="history-area">
+          <section class="history-intro">
+          <h2>Quero sortear:</h2>
+          <p>
+            Defina o intervalo e a quantidade de números, clique em "Sortear" e
+            veja os resultados na tela. É rápido e fácil!
+          </p>
+          
+          <button 
+            type="button" 
+            id="toggle-history" 
+            class="secondary-button"
+            aria-label="Ver histórico de sorteios"
+            aria-expanded="false"
+            aria-controls="history-panel"
+          >
+            Ver histórico
+          </button>
+          </section>
+
+          <aside id="history-panel" class="history-panel" hidden aria-label="Histórico de sorteios">
+            <div class="history-header">
+              <h3>Histórico de Sorteios</h3>
+              <button 
+                type="button" 
+                id="clear-history" 
+                class="icon-button"
+                aria-label="Limpar histórico"
+                title="Limpar histórico"
+              >
+                Limpar
+              </button>
+            </div>
+            <div id="history-list" class="history-list" role="list">
+              <p class="empty-history">Nenhum sorteio realizado ainda</p>
+            </div>
+          </aside>
+        </div>
+
+        <form aria-label="Formulário de sorteio de números">
+          <fieldset>
+            <legend class="visually-hidden">Configurações do sorteio</legend>
+            
+            <div role="alert" aria-live="polite" id="error-message" class="error-message" aria-atomic="true"></div>
+            
+            <div class="flex">
+              <div class="input-number">
+                <label for="draw">Números</label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    name="draw"
+                    id="draw"
+                    value="2"
+                    aria-label="Quantidade de números a sortear"
+                    aria-describedby="draw-hint"
+                    aria-required="true"
+                    min="1"
+                  />
+                </div>
+                <span id="draw-hint" class="visually-hidden">Digite quantos números deseja sortear</span>
+              </div>
+
+              <div class="input-number">
+                <label for="initial">De</label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    name="initial"
+                    id="initial"
+                    value="1"
+                    aria-label="Número inicial do intervalo"
+                    aria-describedby="initial-hint"
+                    aria-required="true"
+                  />
+                </div>
+                <span id="initial-hint" class="visually-hidden">Digite o número inicial do intervalo</span>
+              </div>
+
+              <div class="input-number">
+                <label for="final">A</label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    name="final"
+                    id="final"
+                    value="100"
+                    aria-label="Número final do intervalo"
+                    aria-describedby="final-hint"
+                    aria-required="true"
+                  />
+                </div>
+                <span id="final-hint" class="visually-hidden">Digite o número final do intervalo</span>
+              </div>
+            </div>
+
+            <div id="checkbox">
+              <div>
+                <div id="btn" role="presentation">
+                  <input 
+                    type="checkbox" 
+                    id="check" 
+                    name="check" 
+                    checked 
+                    aria-label="Não repetir números no sorteio"
+                    aria-describedby="check-hint"
+                  />
+                </div>
+              </div>
+              <label for="check">Não repetir números</label>
+              <span id="check-hint" class="visually-hidden">Quando marcado, cada número será sorteado apenas uma vez</span>
+            </div>
+          </fieldset>
+
+          <button 
+            id="draw-one" 
+            type="submit"
+            aria-label="Sortear números com as configurações definidas"
+          >
+            SORTEAR
+            <img
+              src="./assets/icons/arrow-right.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+        </form>
+      </main>
+
+      <footer class="" role="contentinfo">
+        <section>
+          <img src="assets/icons/user.svg" alt="Ícone de usuário" />
+          <div>
+            <h3>Como funciona o sorteador de números?</h3>
+            <p>
+              O sorteador utiliza um algoritmo de geração aleatória para criar
+              números dentro do intervalo especificado pelo usuário.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <img src="assets/icons/user.svg" alt="Ícone de usuário" />
+          <div>
+            <h3>Posso escolher o intervalo dos números?</h3>
+            <p>
+              Sim, você pode definir os valores mínimo e máximo para o intervalo
+              dos números sorteados.
+            </p>
+          </div>
+        </section>
+      </footer>
+    </div>
+    <div id="bg-shape"></div>
+    <script src="scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--background-brand);
+  color: var(--color-inverse);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font: var(--label-sm);
+  z-index: 100;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+.error-message {
+  display: none;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgba(233, 169, 179, 0.2);
+  border: 2px solid var(--accent-red);
+  border-radius: 0.5rem;
+  color: var(--accent-red);
+  font: var(--paragraph-md);
+  text-align: center;
+}
+
+.error-message.show {
+  display: block;
+  animation: slideDown 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+*:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+button:focus-visible {
+  outline-offset: 4px;
+}
+
+input[type="text"]:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.input-wrapper:has(input:focus-visible) {
+  box-shadow: 0 0 0 4px rgba(145, 161, 250, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .error-message {
+    background-color: var(--accent-red);
+    color: var(--color-inverse);
+    font-weight: 700;
+  }
+
+  *:focus-visible {
+    outline-width: 4px;
+  }
+}
