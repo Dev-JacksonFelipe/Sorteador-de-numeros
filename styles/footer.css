@@ -56,7 +56,9 @@ footer {
     grid-column: 1 / -1;
     grid-row: 3;
     align-self: end;
+    justify-self: center;
     padding-bottom: 1rem;
+    width: auto;
   }
 
   #info {
