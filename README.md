@@ -1,82 +1,160 @@
-# Sorteador de Números
+# 🎲 Sorteador de Números
 
-Aplicação web para sortear números aleatórios de forma simples, rápida e visual.
+Aplicação web moderna e acessível para sortear números aleatórios com interface intuitiva e recursos avançados.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-## Demo
+## ✨ Funcionalidades
 
-[Acessar projeto online](https://dev-jacksonfelipe.github.io/Sorteador-de-numeros/)
+- 🎯 **Sorteio Personalizado**: Defina quantidade, intervalo (de/até) e repetição
+- 📋 **Copiar Resultados**: Copie números sorteados para área de transferência
+- 📚 **Histórico Completo**: Visualize todos os sorteios realizados
+- 💾 **Exportação**: Exporte resultados em CSV ou TXT
+- 💿 **Configurações Salvas**: Última configuração é restaurada automaticamente
+- ♿ **100% Acessível**: Suporte completo a leitores de tela e navegação por teclado
+- 📱 **Responsivo**: Funciona perfeitamente em mobile, tablet e desktop
+- 🎨 **Animações Suaves**: Interface moderna com feedback visual
 
-## Funcionalidades
+## 🚀 Demo
 
-- Definir a quantidade de números sorteados
-- Escolher o intervalo entre valor inicial e final
-- Permitir ou bloquear repetição de números
-- Exibir resultado com animação
-- Sortear novamente com a mesma configuração
-- Voltar ao menu principal após o sorteio
-- Salvar histórico dos sorteios no navegador
-- Visualizar os sorteios anteriores em um painel
-- Abrir um item do histórico para ver os números completos
-- Copiar números pelo histórico
-- Manter a última configuração salva no navegador
+[Ver Demo ao Vivo](https://sorteador-de-numeros.vercel.app)
 
-## Tecnologias
+## 🛠️ Tecnologias
 
-- HTML5
-- CSS3
-- JavaScript
-- LocalStorage
+- **HTML5**: Estrutura semântica
+- **CSS3**: Estilização moderna com variáveis CSS e animações
+- **JavaScript ES6+**: Lógica com classes, async/await e módulos
+- **LocalStorage API**: Persistência de dados
+- **Clipboard API**: Copiar para área de transferência
+- **ARIA**: Acessibilidade completa
 
-## Como executar
+## 📦 Instalação
 
 1. Clone o repositório:
-
 ```bash
 git clone https://github.com/Dev-JacksonFelipe/Sorteador-de-numeros.git
 ```
 
-2. Entre na pasta do projeto:
-
+2. Navegue até o diretório:
 ```bash
 cd Sorteador-de-numeros
 ```
 
-3. Abra o `index.html` no navegador ou rode um servidor local:
-
+3. Abra o arquivo `index.html` no navegador ou use um servidor local:
 ```bash
+# Com Python
+python -m http.server 8000
+
+# Com Node.js (http-server)
 npx http-server
 ```
 
-## Como usar
+## 💻 Como Usar
 
-1. Preencha a quantidade de números.
-2. Defina o intervalo do sorteio.
-3. Escolha se os números podem se repetir ou não.
-4. Clique em `Sortear`.
-5. Abra o histórico para revisar sorteios anteriores.
+1. **Configure o Sorteio**:
+   - Digite a quantidade de números a sortear
+   - Defina o intervalo (número inicial e final)
+   - Marque/desmarque "Não repetir números"
 
-## Estrutura
+2. **Sortear**:
+   - Clique em "SORTEAR" ou pressione `Ctrl+Enter`
+   - Aguarde a animação dos números
 
-```bash
-.
+3. **Ações Disponíveis**:
+   - 📋 Copiar números
+   - 📊 Exportar como CSV
+   - 📄 Exportar como TXT
+   - 🔄 Sortear novamente
+
+4. **Histórico**:
+   - Clique em "Ver Histórico" para visualizar sorteios anteriores
+   - Cada item do histórico pode ser copiado ou exportado
+
+## ⌨️ Atalhos de Teclado
+
+- `Tab`: Navegar entre elementos
+- `Ctrl+Enter`: Realizar sorteio
+
+## ♿ Acessibilidade
+
+Este projeto segue as diretrizes **WCAG 2.1** (Níveis A e AA):
+
+- ✅ Navegação completa por teclado
+- ✅ Suporte a leitores de tela (NVDA, JAWS, VoiceOver)
+- ✅ ARIA labels e roles semânticos
+- ✅ Contraste adequado de cores
+- ✅ Foco visível em todos os elementos interativos
+- ✅ Mensagens de erro acessíveis
+- ✅ Suporte a `prefers-reduced-motion`
+- ✅ Suporte a `prefers-contrast: high`
+
+## 📁 Estrutura do Projeto
+
+```
+sorteador-de-numeros/
 ├── assets/
+│   ├── icons/
+│   │   ├── arrow-right.svg
+│   │   ├── play.svg
+│   │   └── user.svg
+│   ├── bg.png
+│   └── logo.svg
 ├── styles/
+│   ├── accessibility.css
+│   ├── draw.css
+│   ├── features.css
+│   ├── footer.css
+│   ├── global.css
+│   ├── header.css
+│   ├── index.css
+│   └── main.css
 ├── index.html
 ├── scripts.js
 └── README.md
 ```
 
-## Licença
+## 🎨 Arquitetura do Código
+
+O JavaScript está organizado em classes modulares:
+
+- **`StorageManager`**: Gerencia localStorage
+- **`ExportManager`**: Exportação CSV/TXT
+- **`ToastManager`**: Notificações visuais
+- **`HistoryManager`**: Gerencia histórico de sorteios
+- **`AccessibilityManager`**: Recursos de acessibilidade
+- **`InputValidator`**: Validação de inputs
+- **`NumberDrawer`**: Lógica de sorteio
+- **`DrawResultUI`**: Interface de resultados
+- **`DrawApplication`**: Controlador principal
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Siga os passos:
+
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona MinhaFeature'`)
+4. Push para a branch (`git push origin feature/MinhaFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
 
 Este projeto está sob a licença MIT.
 
-## Autor
+## 👨‍💻 Autor
 
-Jackson Felipe
+**Jackson Felipe**
 
 - GitHub: [@Dev-JacksonFelipe](https://github.com/Dev-JacksonFelipe)
+
+## 🙏 Agradecimentos
+
+- [Rocketseat](https://rocketseat.com.br) - Inspiração e aprendizado
+- Comunidade open source
+
+---
+
+⭐ Se este projeto foi útil para você, considere dar uma estrela!
