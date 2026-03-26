@@ -43,6 +43,7 @@
   left: 0;
   right: 0;
   z-index: 20;
+  --history-panel-top: 8.5rem;
   --history-panel-height: min(20rem, 48vh);
   --history-header-space: 5.5rem;
   background-color: var(--background-secondary);
@@ -62,6 +63,20 @@
 
 .history-panel[hidden] {
   display: none;
+}
+
+@media (width < 700px) {
+  .history-panel {
+    position: fixed;
+    top: var(--history-panel-top);
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    --history-panel-height: min(
+      22rem,
+      calc(100dvh - var(--history-panel-top) - 1rem)
+    );
+  }
 }
 
 .history-header {

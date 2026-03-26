@@ -90,6 +90,7 @@ function setupHistory() {
   elements.historyList.addEventListener("wheel", handleHistoryWheel, {
     passive: false,
   });
+  window.addEventListener("resize", updateHistoryPanelPosition);
 }
 
 function handleSubmit(event) {
@@ -273,6 +274,7 @@ function toggleHistoryPanel() {
   const isClosed = elements.historyPanel.hasAttribute("hidden");
 
   if (isClosed) {
+    updateHistoryPanelPosition();
     renderHistory();
     elements.historyList.scrollTop = 0;
     elements.historyPanel.removeAttribute("hidden");
@@ -284,6 +286,23 @@ function toggleHistoryPanel() {
   elements.historyPanel.setAttribute("hidden", "");
   elements.historyToggle.textContent = "Ver histórico";
   elements.historyToggle.setAttribute("aria-expanded", "false");
+}
+
+function updateHistoryPanelPosition() {
+  if (window.innerWidth >= 700) {
+    elements.historyPanel.style.removeProperty("--history-panel-top");
+    return;
+  }
+
+  const viewportMargin = 16;
+  const minimumTop = 88;
+  const minimumHeight = 220;
+  const toggleRect = elements.historyToggle.getBoundingClientRect();
+  const idealTop = toggleRect.bottom + 12;
+  const maxTop = window.innerHeight - minimumHeight - viewportMargin;
+  const top = Math.max(minimumTop, Math.min(idealTop, maxTop));
+
+  elements.historyPanel.style.setProperty("--history-panel-top", `${top}px`);
 }
 
 function handleHistoryWheel(event) {

@@ -73,18 +73,18 @@ body {
 }
 
 #bg-shape {
-  position: absolute;
+  position: fixed;
   z-index: -2;
   background: linear-gradient(
       -180deg,
       rgba(0, 0, 0, 0.9) 22.66%,
       rgba(0, 0, 0, 0.54) 100%
     ),
-    url(../assets/bg.png);
-  height: 100%;
-  left: -50%;
-  bottom: 0;
-  width: 200%;
+    url(../assets/bg.png) center / cover;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
 }
 
 h1,
