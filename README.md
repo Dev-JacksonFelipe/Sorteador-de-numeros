@@ -71,12 +71,3 @@ npx http-server
 └── README.md
 ```
 
-## Licença
-
-Este projeto está sob a licença MIT.
-
-## Autor
-
-Jackson Felipe
-
-- GitHub: [@Dev-JacksonFelipe](https://github.com/Dev-JacksonFelipe)
