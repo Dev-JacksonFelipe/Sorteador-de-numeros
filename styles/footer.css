@@ -27,9 +27,36 @@ footer {
   display: grid;
 }
 
+.developer-credit {
+  width: 100%;
+  margin: 2rem auto 0;
+  text-align: center;
+  font: var(--paragraph-lg);
+  color: var(--content-secondary);
+}
+
+.developer-credit a {
+  color: #6d8dff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 200ms ease;
+}
+
+.developer-credit a:hover {
+  opacity: 0.85;
+}
+
 @media (950px <= width) {
   footer {
     display: none;
+  }
+
+  .developer-credit {
+    margin: 0;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    align-self: end;
+    padding-bottom: 1rem;
   }
 
   #info {
@@ -45,5 +72,9 @@ footer {
 @media (width >= 1200px) {
   #info {
     max-width: 24.125rem;
+  }
+
+  .developer-credit {
+    padding-bottom: 1.5rem;
   }
 }

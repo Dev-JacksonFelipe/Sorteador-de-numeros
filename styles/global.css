@@ -67,9 +67,11 @@
 body {
   background-color: var(--background-primary);
   position: relative;
+  min-height: 100dvh;
   overflow-x: hidden;
   justify-content: center;
   color: var(--content-primary);
+  grid-template-rows: auto 1fr;
 }
 
 #bg-shape {
@@ -124,9 +126,14 @@ label {
   }
 
   #layout {
-    display: flex;
-    gap: 4rem;
-    margin-bottom: 6rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto 1fr auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: 4rem;
+    row-gap: 1.5rem;
+    min-height: 100%;
   }
 }
 
@@ -140,8 +147,7 @@ label {
     gap: 5.75rem;
 
     & #layout {
-      gap: 6rem;
-      margin-bottom: 10rem;
+      column-gap: 6rem;
     }
   }
 }
